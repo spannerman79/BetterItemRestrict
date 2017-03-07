@@ -1,0 +1,25 @@
+name: ${project.artifactId}
+main: ${package}.${project.artifactId}
+version: ${project.version}
+author: ${developer}
+depend: [KaisCommons]
+loadbefore: [ItemRestrict]
+
+commands:
+   betteritemrestrict:
+      description: Manage ${project.artifactId}
+      aliases: [ires, bir, bires]
+   banneditems:
+      description: Banned items list
+
+permissions:
+    betteritemrestrict.manage:
+        description: Manage ${project.artifactId}
+        default: op
+    betteritemrestrict.bypass:
+        description: Bypasses all protections
+        default: false
+    betteritemrestrict.list:
+        description: Allows banneditems command use
+        default: true
+        

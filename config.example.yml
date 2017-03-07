@@ -1,0 +1,9 @@
+# Format: "MaterialName,DamageValue|ItemLabel|Reason" - Note: ",DamageValue" can be omit
+
+Usage: # Sticks can't be used (left/right click)
+- "STICK|Stick|Sticks are evil. You cannot use them."
+Ownership: # Hoppers can't be crafted, owner, so you can't also place them. Also Dark Red Wool (notice the ",4")
+- "HOPPER|Hopper|Hoppers are too cool for you!"
+- "WOOL,4|Dark Red Wool|Dark Red wool is dark red."
+World: # This will remove all furnaces from the worlds
+- "FURNACE|Furnace|Furnaces are bad."
