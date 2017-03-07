@@ -9,6 +9,9 @@ import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.Text.Builder;
 import org.spongepowered.api.text.format.TextColors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BannedItemsCommand implements CommandExecutor {
 	private BetterItemRestrict instance;
 	
@@ -18,29 +21,32 @@ public class BannedItemsCommand implements CommandExecutor {
 	
 	@Override
 	public CommandResult execute(CommandSource src, CommandContext args) throws CommandException {
-		src.sendMessage(Text.of(TextColors.GOLD, "--- BetterItemRestrict Banned Items List ---"));
-		
-		Builder sb = Text.builder();
+
+		List<Text> texts = new ArrayList<>();
+		texts.add(Text.of(TextColors.GOLD, "Ownership: "));
 		boolean sw = true;
 		for (RestrictedItem ri : instance.config().ownership.values()) {
 			if (ri.label != null && !ri.label.isEmpty()) {
-				sb.append(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label, ", "));
+				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label));
 				sw = !sw;
 			}
 		}
 
-		src.sendMessage(Text.of(TextColors.GOLD, "Ownership: ", sb.build()));
-		
-		sb = Text.builder();
+		texts.add(Text.of(TextColors.GOLD, "Use/Place: "));
 		sw = true;
 		for (RestrictedItem ri : instance.config().usage.values()) {
 			if (ri.label != null && !ri.label.isEmpty()) {
-				sb.append(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label, ", "));
+				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label));
 				sw = !sw;
 			}
 		}
-	
-		src.sendMessage(Text.of(TextColors.GOLD, "Use/Place: ",sb.build()));
+
+		instance.getPaginationService().builder()
+				.contents(texts)
+				.title(Text.of(TextColors.GOLD, "Banned Items List"))
+				.sendTo(src);
+
+
 		return CommandResult.success();
 	}
 
