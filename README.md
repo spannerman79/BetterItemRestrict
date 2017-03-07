@@ -12,7 +12,7 @@ After loading the plugin for the first time, a default config will be generated.
 Edit your config and add the 
 
 #### Example:
-[Check this example file](http://github.com/KaiKikuchi/BetterItemRestrict/config.example.yml)
+[Check this example file](https://github.com/KaiKikuchi/BetterItemRestrict/blob/master/config.example.yml)
 
 #### Permissions
 - betteritemrestrict.list = for the "/banneditems" command
