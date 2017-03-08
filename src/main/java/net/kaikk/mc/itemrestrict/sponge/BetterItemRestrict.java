@@ -16,6 +16,7 @@ import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.ItemStack;
 import org.spongepowered.api.plugin.Dependency;
 import org.spongepowered.api.plugin.Plugin;
+import org.spongepowered.api.service.pagination.PaginationService;
 import org.spongepowered.api.text.Text;
 import org.spongepowered.api.text.format.TextColors;
 
@@ -308,5 +309,9 @@ public class BetterItemRestrict {
 	
 	public ConfigurationLoader<CommentedConfigurationNode> getConfigManager() {
 		return configManager;
+	}
+
+	PaginationService getPaginationService() {
+		return Sponge.getServiceManager().provide(PaginationService.class).get();
 	}
 }
