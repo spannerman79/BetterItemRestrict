@@ -18,6 +18,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.kaikk.mc.kaiscommons.bukkit.CommonBukkitUtils;
+import org.spongepowered.api.Sponge;
+import org.spongepowered.api.text.Text;
+import org.spongepowered.api.text.format.TextColors;
+import org.spongepowered.api.text.format.TextStyles;
 
 public class BetterItemRestrict extends JavaPlugin {
 	private static BetterItemRestrict instance;
@@ -220,6 +224,12 @@ public class BetterItemRestrict extends JavaPlugin {
 	
 	public void notify(HumanEntity player, RestrictedItem restrictedItem) {
 		this.getLogger().info(player.getName()+" @ "+CommonBukkitUtils.locationToString(player.getLocation())+" tried to own/use "+restrictedItem);
+
+		for (Player player2 : Bukkit.getServer().getOnlinePlayers()) {
+			if (player2.hasPermission("betteritemrestrict.admin")) {
+				player2.sendMessage(ChatColor.ITALIC + "" + ChatColor.GRAY + player.getName() + " @ " + player.getLocation() + " in " + player.getWorld() + ", tried to own/use " + restrictedItem.label);
+			}
+		}
 		if (player instanceof CommandSender) {
 			((CommandSender) player).sendMessage(ChatColor.RED+restrictedItem.label+" is restricted. Reason: "+restrictedItem.reason);
 		}

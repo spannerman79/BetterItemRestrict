@@ -287,7 +287,7 @@ public class BetterItemRestrict {
 
 		for (Player player2 : Sponge.getServer().getOnlinePlayers()) {
             if (player2.hasPermission("betteritemrestrict.admin")) {
-                player2.sendMessage(Text.of(TextStyles.ITALIC, TextColors.GRAY, player.getName() + " @ " + player.getLocation().getPosition() + " in " + player.getWorld().getProperties().getWorldName() + ", tried to own/use " + restrictedItem));
+                player2.sendMessage(Text.of(TextStyles.ITALIC, TextColors.GRAY, player.getName() + " @ " + player.getLocation().getPosition() + " in " + player.getWorld().getProperties().getWorldName() + ", tried to own/use " + restrictedItem.label));
             }
         }
 

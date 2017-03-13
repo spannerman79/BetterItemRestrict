@@ -17,3 +17,4 @@ Edit your config and add the
 #### Permissions
 - betteritemrestrict.list = for the "/banneditems" command
 - betteritemrestrict.manage = for the "/bires" command
+- betteritemrestrict.admin = for being notified in-game when a banned item is used
