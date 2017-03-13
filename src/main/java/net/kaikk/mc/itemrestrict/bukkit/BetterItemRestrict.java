@@ -222,7 +222,7 @@ public class BetterItemRestrict extends JavaPlugin {
 		this.getLogger().info(player.getName()+" @ "+CommonBukkitUtils.locationToString(player.getLocation())+" tried to own/use "+restrictedItem);
 
 		for (Player player2 : Bukkit.getServer().getOnlinePlayers()) {
-			if (player2.hasPermission("betteritemrestrict.admin")) {
+			if (player2.hasPermission("betteritemrestrict.notify")) {
 				player2.sendMessage(ChatColor.ITALIC + "" + ChatColor.GRAY + player.getName() + " @ " + player.getLocation() + " in " + player.getWorld() + ", tried to own/use " + restrictedItem.label);
 			}
 		}

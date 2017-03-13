@@ -16,6 +16,9 @@ permissions:
     betteritemrestrict.manage:
         description: Manage ${project.artifactId}
         default: op
+    betteritemrestrict.notify:
+        description: Notifications about players triggering the restriction
+        default: false
     betteritemrestrict.bypass:
         description: Bypasses all protections
         default: false
