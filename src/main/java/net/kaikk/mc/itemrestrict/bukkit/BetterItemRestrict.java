@@ -18,10 +18,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import net.kaikk.mc.kaiscommons.bukkit.CommonBukkitUtils;
-import org.spongepowered.api.Sponge;
-import org.spongepowered.api.text.Text;
-import org.spongepowered.api.text.format.TextColors;
-import org.spongepowered.api.text.format.TextStyles;
 
 public class BetterItemRestrict extends JavaPlugin {
 	private static BetterItemRestrict instance;
