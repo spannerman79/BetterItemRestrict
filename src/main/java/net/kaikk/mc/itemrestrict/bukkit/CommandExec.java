@@ -52,6 +52,10 @@ public class CommandExec implements CommandExecutor {
 					sb.append(sw ? ChatColor.GREEN : ChatColor.DARK_GREEN);
 					sw = !sw;
 					sb.append(ri.label);
+					sb.append(ChatColor.WHITE);
+					sb.append(" - ");
+					sb.append(ChatColor.RED);
+					sb.append(ri.reason);
 					sb.append(", ");
 				}
 			}
@@ -67,6 +71,10 @@ public class CommandExec implements CommandExecutor {
 					sb.append(sw ? ChatColor.GREEN : ChatColor.DARK_GREEN);
 					sw = !sw;
 					sb.append(ri.label);
+					sb.append(ChatColor.WHITE);
+					sb.append(" - ");
+					sb.append(ChatColor.RED);
+					sb.append(ri.reason);
 					sb.append(", ");
 				}
 			}

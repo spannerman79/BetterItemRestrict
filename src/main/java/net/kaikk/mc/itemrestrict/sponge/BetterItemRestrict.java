@@ -24,6 +24,7 @@ import com.google.inject.Inject;
 
 import ninja.leaping.configurate.commented.CommentedConfigurationNode;
 import ninja.leaping.configurate.loader.ConfigurationLoader;
+import org.spongepowered.api.text.format.TextStyles;
 
 @Plugin(id=PluginInfo.id, name = PluginInfo.name, version = PluginInfo.version, description = PluginInfo.description, dependencies = @Dependency(id="kaiscommons"))
 public class BetterItemRestrict {
@@ -283,6 +284,13 @@ public class BetterItemRestrict {
 	
 	public void notify(Player player, RestrictedItem restrictedItem) {
 		this.logger().info(player.getName()+" @ "+player.getLocation()+" tried to own/use "+restrictedItem);
+
+		for (Player player2 : Sponge.getServer().getOnlinePlayers()) {
+            if (player2.hasPermission("betteritemrestrict.admin")) {
+                player2.sendMessage(Text.of(TextStyles.ITALIC, TextColors.GRAY, player.getName() + " @ " + player.getLocation().getPosition() + " in " + player.getWorld().getProperties().getWorldName() + ", tried to own/use " + restrictedItem.label));
+            }
+        }
+
 		if (player instanceof Player) {
 			player.sendMessage(Text.of(TextColors.RED, restrictedItem.label, " is restricted. Reason: ", restrictedItem.reason));
 		}
