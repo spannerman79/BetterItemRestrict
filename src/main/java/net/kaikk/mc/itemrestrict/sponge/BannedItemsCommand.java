@@ -27,7 +27,7 @@ public class BannedItemsCommand implements CommandExecutor {
 		boolean sw = true;
 		for (RestrictedItem ri : instance.config().ownership.values()) {
 			if (ri.label != null && !ri.label.isEmpty()) {
-				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label));
+				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label, TextColors.WHITE, " - ", TextColors.RED, ri.reason));
 				sw = !sw;
 			}
 		}
@@ -36,14 +36,14 @@ public class BannedItemsCommand implements CommandExecutor {
 		sw = true;
 		for (RestrictedItem ri : instance.config().usage.values()) {
 			if (ri.label != null && !ri.label.isEmpty()) {
-				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label));
+				texts.add(Text.of(sw ? TextColors.GREEN : TextColors.DARK_GREEN, ri.label, TextColors.WHITE, " - ", TextColors.RED, ri.reason));
 				sw = !sw;
 			}
 		}
 
 		instance.getPaginationService().builder()
 				.contents(texts)
-				.title(Text.of(TextColors.GOLD, "Banned Items List"))
+				.title(Text.of(TextColors.RED, "Banned Items List"))
 				.sendTo(src);
 
 
